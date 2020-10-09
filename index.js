@@ -1,9 +1,19 @@
-const title = document.getElementById("title");
+const title = document.querySelector("#title");
+
+const BASE_COLOR = "rgb(9, 132, 227)";
+const OTHER_COLOR = "rgb(0, 184, 148)";
 function handleClick() {
-  if (title.style.color === "red") {
-    title.style.color = "blue";
+  const currentColor = title.style.color;
+  if (currentColor === BASE_COLOR) {
+    title.style.color = OTHER_COLOR;
   } else {
-    title.style.color = "red";
+    title.style.color = BASE_COLOR;
   }
+  console.log(title.style.color);
 }
-title.addEventListener("click", handleClick); // dir 매서드는 원하는 객체의 매서드를 모두 보여줌(console.log)
+
+function init() {
+  title.style.color = BASE_COLOR;
+  title.addEventListener("mouseenter", handleClick);
+}
+init();
